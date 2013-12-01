@@ -3,6 +3,7 @@ class CurrencyConversionsController < ApplicationController
   # GET /currency_conversions/new
   def new
     @currency_conversion = CurrencyConversion.new
+    @currencies = Currency.all
   end
 
   # POST /currency_conversions

@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :from_code %><br>
-    <%= f.text_field :from_code %>
+    <%= f.label :from %><br>
+    <%= collection_select(:currency_conversion, :from_code, @currencies, :code, :code) %>
   </div>
   <div class="field">
-    <%= f.label :to_code %><br>
-    <%= f.text_field :to_code %>
+    <%= f.label :to %><br>
+    <%= collection_select(:currency_conversion, :to_code, @currencies, :code, :code) %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
