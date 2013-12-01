@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <header class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <h1>FX-u-like</h1>
+        </div>
+      </div>
+    </header>
 
-<%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
 </body>
 </html>
