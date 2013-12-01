@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201125557) do
+ActiveRecord::Schema.define(version: 20131201132929) do
+
+  create_table "conversion_rates", force: true do |t|
+    t.date    "date"
+    t.integer "currency_id"
+    t.float   "rate"
+  end
 
   create_table "currencies", force: true do |t|
     t.string "code"
