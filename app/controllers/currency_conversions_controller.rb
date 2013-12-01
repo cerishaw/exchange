@@ -9,6 +9,7 @@ class CurrencyConversionsController < ApplicationController
   # POST /currency_conversions
   def create
     @currency_conversion = CurrencyConversion.new(currency_conversion_params)
+    @currencies = Currency.all
 
     if @currency_conversion.valid?
       rate = ExchangeRate.at(@currency_conversion.date, @currency_conversion.from_code, @currency_conversion.to_code)
