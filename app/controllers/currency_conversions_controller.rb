@@ -12,7 +12,7 @@ class CurrencyConversionsController < ApplicationController
     if @currency_conversion.valid?
       render 'show'
     else
-      format.html { render action: 'new' }
+      render action: 'new'
       end
   end
 
@@ -20,6 +20,6 @@ class CurrencyConversionsController < ApplicationController
   private
      # Never trust parameters from the scary internet, only allow the white list through.
     def currency_conversion_params
-      params.require(:currency_conversion).permit(:from_code, :to_code, :amount, :date, :new, :create)
+      params.require(:currency_conversion).permit(:from_code, :to_code, :amount, :date)
     end
 end
