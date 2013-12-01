@@ -10,6 +10,8 @@ class CurrencyConversionsController < ApplicationController
     @currency_conversion = CurrencyConversion.new(currency_conversion_params)
 
     if @currency_conversion.valid?
+      rate = ExchangeRate.at(@currency_conversion.date, @currency_conversion.from_code, @currency_conversion.to_code)
+      @converted_amount = rate * @currency_conversion.amount
       render 'show'
     else
       render action: 'new'
