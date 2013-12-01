@@ -11,15 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201120020) do
-
-  create_table "currency_conversions", force: true do |t|
-    t.string   "from_code"
-    t.string   "to_code"
-    t.integer  "amount"
-    t.date     "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
