@@ -1,3 +1,13 @@
+class CurrencyValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    valid_codes = Currency.all.map {|currency| currency.code}
+    unless valid_codes.include? value
+      record.errors[attribute] <<(options[:message] || "is not a valid currency")
+    end
+
+  end
+end
+
 class CurrencyConversion < ActiveRecord::Base
   def self.columns() @columns ||= []; end
 
@@ -12,6 +22,7 @@ class CurrencyConversion < ActiveRecord::Base
 
   validates :date, presence:true
   validates :amount, presence:true
-  validates :from_code, presence:true, length: { is: 3 }
-  validates :to_code, presence:true, length: { is: 3 }
+  validates :from_code, presence:true, currency: true
+  validates :to_code, presence:true, currency: true
 end
+
