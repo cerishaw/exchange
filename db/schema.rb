@@ -14,9 +14,7 @@
 ActiveRecord::Schema.define(version: 20131201125557) do
 
   create_table "currencies", force: true do |t|
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "code"
   end
 
 end
