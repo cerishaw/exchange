@@ -17,7 +17,7 @@ module ConversionPopulatorsHelper
         currency_code = rate.attribute('currency').value
         rate = rate.attribute('rate').value.to_f
         currency = find_or_create_currency(currency_code)
-        ConversionRate.create(:date => date,:currency_id => currency.id, :rate => rate)
+        find_or_create_rate(date,currency.id,rate)
       end
     end
     14
@@ -26,5 +26,10 @@ module ConversionPopulatorsHelper
   private
   def self.find_or_create_currency(currency_code)
     Currency.where(code: currency_code).first_or_create
+  end
+
+  def self.find_or_create_rate(date, currency_id, rate)
+    ConversionRate.where(date: date, currency_id: currency_id, rate: rate)
+                  .first_or_create
   end
 end
