@@ -1,28 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+    <p id="notice"><%= notice %></p>
+    <h2>
+      <small>
+          <span class='widely-spaced'>on</span>
+          <%= @currency_conversion.date %>
+      </small>
+    </h2>
+    <h2>
+        <%= @currency_conversion.amount %>
+        <%= @currency_conversion.from_code %>
+        <span class='widely-spaced'>=</span>
+        <%= @converted_amount %>
+        <%= @currency_conversion.to_code %>
+    </h2>
 
-<p>
-  <strong>From code:</strong>
-  <%= @currency_conversion.from_code %>
-</p>
-
-<p>
-  <strong>To code:</strong>
-  <%= @currency_conversion.to_code %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @currency_conversion.amount %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @currency_conversion.date %>
-</p>
-
-<p>
-  <strong>Converted Amount:</strong>
-  <%= @converted_amount %>
-</p>
-
-<%= link_to 'Convert Again', new_currency_conversion_path %>
+    <%= link_to 'Convert Again', new_currency_conversion_path, class: 'btn'%>
+</div>

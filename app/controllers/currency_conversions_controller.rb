@@ -13,7 +13,7 @@ class CurrencyConversionsController < ApplicationController
 
     if @currency_conversion.valid?
       rate = ExchangeRate.at(@currency_conversion.date, @currency_conversion.from_code, @currency_conversion.to_code)
-      @converted_amount = rate * @currency_conversion.amount
+      @converted_amount = format_as_money(rate * @currency_conversion.amount)
       render 'show'
     else
       render action: 'new'
@@ -22,8 +22,12 @@ class CurrencyConversionsController < ApplicationController
 
 
   private
-     # Never trust parameters from the scary internet, only allow the white list through.
-    def currency_conversion_params
-      params.require(:currency_conversion).permit(:from_code, :to_code, :amount, :date)
-    end
+   # Never trust parameters from the scary internet, only allow the white list through.
+  def currency_conversion_params
+    params.require(:currency_conversion).permit(:from_code, :to_code, :amount, :date)
+  end
+
+  def format_as_money(money_amount)
+    money_amount.round(2)
+  end
 end
