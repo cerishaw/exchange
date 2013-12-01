@@ -1,0 +1,21 @@
+<%= form_for(@conversion_populator) do |f| %>
+  <% if @conversion_populator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conversion_populator.errors.count, "error") %> prohibited this conversion_populator from being saved:</h2>
+
+      <ul>
+      <% @conversion_populator.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

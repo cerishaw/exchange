@@ -16,7 +16,7 @@ class CurrencyConversionsController < ApplicationController
       render 'show'
     else
       render action: 'new'
-      end
+    end
   end
 
 
