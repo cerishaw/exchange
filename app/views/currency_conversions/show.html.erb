@@ -20,15 +20,4 @@
   <%= @currency_conversion.date %>
 </p>
 
-<p>
-  <strong>New:</strong>
-  <%= @currency_conversion.new %>
-</p>
-
-<p>
-  <strong>Create:</strong>
-  <%= @currency_conversion.create %>
-</p>
-
-<%= link_to 'Edit', edit_currency_conversion_path(@currency_conversion) %> |
-<%= link_to 'Back', currency_conversions_path %>
+<%= link_to 'Convert Again', new_currency_conversion_path %>

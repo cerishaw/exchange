@@ -9,13 +9,11 @@ class CurrencyConversionsController < ApplicationController
   def create
     @currency_conversion = CurrencyConversion.new(currency_conversion_params)
 
-    respond_to do |format|
-      if @currency_conversion.valid?
-        render 'show'
-      else
-        format.html { render action: 'new' }
+    if @currency_conversion.valid?
+      render 'show'
+    else
+      format.html { render action: 'new' }
       end
-    end
   end
 
 
