@@ -1,4 +1,4 @@
-class ConversionRates < ActiveRecord::Base
+class ConversionRate < ActiveRecord::Base
   has_one :currency
 
   validates :date, presence:true

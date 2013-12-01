@@ -11,7 +11,7 @@ class ConversionPopulatorsController < ApplicationController
     @conversion_populator = ConversionPopulator.new(conversion_populator_params)
 
     if @conversion_populator.valid?
-      @entries_added = 2
+      @entries_added = ConversionPopulatorsHelper.extract_xml
       render 'show'
     else
       render action: 'new'

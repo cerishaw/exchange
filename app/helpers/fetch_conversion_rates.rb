@@ -1,8 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-require 'active_record'
-require 'sqlite3'
-require '../../app/models/currency'
 
 url = 'http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml'
 
