@@ -1,0 +1,37 @@
+<h1>Listing currency_conversions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From code</th>
+      <th>To code</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>New</th>
+      <th>Create</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @currency_conversions.each do |currency_conversion| %>
+      <tr>
+        <td><%= currency_conversion.from_code %></td>
+        <td><%= currency_conversion.to_code %></td>
+        <td><%= currency_conversion.amount %></td>
+        <td><%= currency_conversion.date %></td>
+        <td><%= currency_conversion.new %></td>
+        <td><%= currency_conversion.create %></td>
+        <td><%= link_to 'Show', currency_conversion %></td>
+        <td><%= link_to 'Edit', edit_currency_conversion_path(currency_conversion) %></td>
+        <td><%= link_to 'Destroy', currency_conversion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Currency conversion', new_currency_conversion_path %>
