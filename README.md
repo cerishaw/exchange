@@ -14,3 +14,5 @@ TODO:
 * restrict access to populate pages
 * Sort currencies
 * max value for amount?
+* support for IE 9 and below
+* general code tidy
