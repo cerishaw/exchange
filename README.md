@@ -6,7 +6,6 @@ TODO:
 
 * Error handling when record not found
 * Tests
-* Max date from repository
 * Allow float values for amount
 * remove back link from conversion page
 * Fix styling when page fails validation

@@ -4,12 +4,16 @@ class CurrencyConversionsController < ApplicationController
   def new
     @currency_conversion = CurrencyConversion.new
     @currencies = Currency.all
+    @min_date = get_min_date()
+    @max_date = get_max_date()
   end
 
   # POST /currency_conversions
   def create
     @currency_conversion = CurrencyConversion.new(currency_conversion_params)
     @currencies = Currency.all
+    @min_date = get_min_date()
+    @max_date = get_max_date()
 
     if @currency_conversion.valid?
       rate = ExchangeRate.at(@currency_conversion.date, @currency_conversion.from_code, @currency_conversion.to_code)
@@ -29,5 +33,13 @@ class CurrencyConversionsController < ApplicationController
 
   def format_as_money(money_amount)
     money_amount.round(2)
+  end
+
+  def get_max_date
+    ConversionRate.order(:date).last.date
+  end
+
+  def get_min_date
+    ConversionRate.order(:date).first.date
   end
 end
