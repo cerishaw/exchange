@@ -21,7 +21,7 @@ class CurrencyConversion < ActiveRecord::Base
   column :to_code, :string
 
   validates :date, presence:true
-  validates :amount, presence:true
+  validates_numericality_of :amount, greater_than: 0
   validates :from_code, presence:true, currency: true
   validates :to_code, presence:true, currency: true
 end
