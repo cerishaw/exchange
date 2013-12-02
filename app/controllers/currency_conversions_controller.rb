@@ -3,7 +3,7 @@ class CurrencyConversionsController < ApplicationController
   # GET /currency_conversions/new
   def new
     @currency_conversion = CurrencyConversion.new
-    @currencies = Currency.all
+    @currencies = get_all_currencies()
     @min_date = get_min_date()
     @max_date = get_max_date()
   end
@@ -11,7 +11,7 @@ class CurrencyConversionsController < ApplicationController
   # POST /currency_conversions
   def create
     @currency_conversion = CurrencyConversion.new(currency_conversion_params)
-    @currencies = Currency.all
+    @currencies = get_all_currencies()
     @min_date = get_min_date()
     @max_date = get_max_date()
 
@@ -41,5 +41,9 @@ class CurrencyConversionsController < ApplicationController
 
   def get_min_date
     ConversionRate.order(:date).first.date
+  end
+
+  def get_all_currencies
+    Currency.all.order(:code)
   end
 end

@@ -11,7 +11,6 @@ TODO:
 * Duplication in non-db models?
 * call populate page from .rb file
 * restrict access to populate pages
-* Sort currencies
 * max value for amount?
 * support for IE 9 and below
 * general code tidy
