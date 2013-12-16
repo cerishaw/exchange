@@ -16,7 +16,8 @@ class CurrencyConversionsController < ApplicationController
     @max_date = get_max_date()
 
     if @currency_conversion.valid?
-      rate = ExchangeRate.at(@currency_conversion.date, @currency_conversion.from_code, @currency_conversion.to_code)
+      actual_exchange_date = get_date_of_exchange(@currency_conversion.date)
+      rate = ExchangeRate.at(actual_exchange_date, @currency_conversion.from_code, @currency_conversion.to_code)
       @converted_amount = format_as_money(rate * @currency_conversion.amount)
       render 'show'
     else
@@ -49,5 +50,16 @@ class CurrencyConversionsController < ApplicationController
 
   def get_all_currencies
     Currency.all.order(:code)
+  end
+
+  #this logic should really be tested
+  def get_date_of_exchange(date_requested)
+    if date_requested.saturday? then
+      date_requested - 1
+    elsif date_requested.sunday? then
+      date_requested - 2
+    else
+      date_requested
+    end
   end
 end

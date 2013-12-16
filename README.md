@@ -4,8 +4,10 @@ A simple exchange rate calculator
 
 TODO:
 
-~~* Error handling when record not found~~
+* ~~Error handling when record not found~~
 * Tests
+  * Exchange logic
+  * date calculation
 * Allow float values for amount
 * Fix styling when page fails validation
 * Duplication in non-db models?
@@ -14,4 +16,4 @@ TODO:
 * max value for amount?
 * support for IE 9 and below
 * general code tidy
-* Use last date with exchange info when getting rate for a weekend
+* ~~Use last date with exchange info when getting rate for a weekend~~
