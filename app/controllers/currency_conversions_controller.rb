@@ -22,6 +22,10 @@ class CurrencyConversionsController < ApplicationController
     else
       render action: 'new'
     end
+
+  rescue ActiveRecord::RecordNotFound
+    flash[:notice] = "Sorry no currency exchange information exists for that day"
+    redirect_to :action => 'new'
   end
 
 
