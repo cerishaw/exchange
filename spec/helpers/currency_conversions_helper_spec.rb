@@ -1,15 +1,12 @@
-require 'spec_helper'
+require 'rspec'
+require 'date'
+require_relative '../../app/helpers/currency_conversions_helper'
 
-# Specs in this file have access to a helper object that includes
-# the CurrencyConversionsHelper. For example:
-#
-# describe CurrencyConversionsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
-describe CurrencyConversionsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+include CurrencyConversionsHelper
+
+describe 'closest weekday' do
+  it 'should be same day when day is a weekday' do
+    day = Date.new(2013,12,17)
+    closest_weekday(day).should.equal?(day)
+  end
 end
