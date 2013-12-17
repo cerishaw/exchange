@@ -15,4 +15,10 @@ describe 'closest weekday' do
     previous_friday = Date.new(2013,12,13)
     closest_weekday(selected_day).should eql previous_friday
   end
+
+  it 'should return previous friday when day is a sunday' do
+    selected_day = Date.new(2013,12,15)
+    previous_friday = Date.new(2013,12,13)
+    closest_weekday(selected_day).should eql previous_friday
+  end
 end
